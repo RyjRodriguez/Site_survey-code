@@ -4,7 +4,7 @@ import numpy as np
 
 ##test comment##
 
-filename = r'C:\Users\rrodr\Google Drive\Courses\Python Projects\Site_survey_analysis\vibration_spectrum_data [1velinsec].csv'
+filename = r'C:filepath.csv'
 df = pd.read_csv(filename , skiprows=3, names=['Hz', 'dBv'])
 
 #convert dBv to V_m
@@ -28,5 +28,5 @@ plt.yscale('log')
 plt.ylim([10**(-7), 10])
 plt.grid(linestyle='-')
 plt.title('Vibration Spectrum')
-# plt.savefig(r'C:\Users\rrodr\Google Drive\Courses\Python Projects\Site_survey_analysis\vibration_spectrum_data [1velinsec].csv' + filename + '.png', dpi=200)
+# plt.savefig(r'filepath' + filename + '.png', dpi=200)
 plt.show()

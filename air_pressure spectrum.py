@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import csv
 
-filename = r"C:\Users\rrodr\Google Drive\Courses\Python Projects\Site_survey_analysis\air_pressure_spectrum_data.csv"
+filename = r"C:\filepath"
 with open(filename) as f:
     reader = csv.reader(f)
     header = next(reader)
@@ -14,5 +14,5 @@ plt.title('Air Pressure')
 plt.xlabel('Series')
 plt.ylabel('kPa')
 plt.tight_layout()
-plt.savefig(r"C:\Users\rrodr\Google Drive\Courses\Python Projects\Site_survey_analysis\air_pressure_spectrum.png", dpi=300)
+#plt.savefig(r"C:filepath\filename.png", dpi=300)
 plt.show()
