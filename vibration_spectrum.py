@@ -4,9 +4,9 @@ import numpy as np
 
 ##test comment##
 
-filename = '/Users/sanskruti/Desktop/tOSU tings/summer21/Vibration Measurements/20210610-0001_PRB105_FR/20210610-0001_PRB105_FR_5.csv'
-filename2 = '/Users/sanskruti/Desktop/tOSU tings/summer21/Vibration Measurements/20210609-0001_PRB101_FR/20210609-0001_PRB101_FR_05.csv'
-filename3 = '/Users/sanskruti/Desktop/tOSU tings/summer21/Vibration Measurements/20210609-0001_PRB155_FR/20210609-0001_PRB155_FR_03.csv'
+filename = '/Users/sanskruti/Desktop/tOSU tings/summer21/Vibration Measurements Day 2/20210629-0001_PRB155_center/20210629-0001_PRB155_center_05.csv'
+filename2 = '/Users/sanskruti/Desktop/tOSU tings/summer21/Vibration Measurements Day 2/20210629-0001_PRB105_center/20210629-0001_PRB105_center_05.csv'
+filename3 = '/Users/sanskruti/Desktop/tOSU tings/summer21/Vibration Measurements Day 2/20210629-0001_PRB101_center/20210629-0001_PRB101_center_5.csv'
 df = pd.read_csv(filename , skiprows=3, names=['Hz', 'dBv'])
 df2 = pd.read_csv(filename2, skiprows=3, names=['Hz', 'dBv'])
 df3 = pd.read_csv(filename3, skiprows=3, names=['Hz', 'dBv'])
@@ -34,9 +34,25 @@ df3['log'] = np.log10(df3['dis'])
 # Hz = list(df['Hz'])
 # dis = list(df['dis'])
 
-plt.plot(list(df['Hz']), list(df['dis']), linewidth=0.5, label = 'PRB105')
-plt.plot(list(df2['Hz']), list(df2['dis']), linewidth=0.5, label = 'PRB101')
-plt.plot(list(df3['Hz']), list(df3['dis']), linewidth=0.5, label = 'PRB155')
+#plots data
+
+#plt.plot(list(df['Hz']), list(df['dis']), linewidth=0.5, label = 'PRB155 0629')
+#plt.plot(list(df2['Hz']), list(df2['dis']), linewidth=0.5, label = 'PRB105 0629')
+#plt.plot(list(df3['Hz']), list(df3['dis']), linewidth=0.5, label = 'PRB101 0629')
+
+#smoothed data
+windowSize = 10
+
+series = type(df.squeeze())
+print(series)
+rolling = series.rolling(10,1)
+mean = rolling.mean()
+print(mean)
+sdList = mean.tolist()
+sdNew = sdList[windowSize - 1]
+
+plt.plot(sdNew, linewidth = 2, label = 'Smooth')
+
 plt.xlabel('Hz')
 plt.ylabel('Displacement, um')
 plt.yscale('log')
