@@ -4,11 +4,11 @@ import numpy as np
 
 ##test comment##
 
-filename = '/Users/sanskruti/Downloads/OneDrive_2_9-17-2021/20210914-0001-slab5/20210914-0001-slab5_1.csv'
-filename2 = '/Users/sanskruti/Downloads/OneDrive_2_9-17-2021/20210914-0001-slab5/20210914-0001-slab5_2.csv'
-filename3 = '/Users/sanskruti/Downloads/OneDrive_2_9-17-2021/20210914-0001-slab5/20210914-0001-slab5_3.csv'
+filename = '/Users/sanskruti/Downloads/nexus!/20210930-0001-cr3/20210930-0001-cr3_1.csv'
+filename1 = '/Users/sanskruti/Downloads/nexus!/20210930-0001-cr3/20210930-0001-cr3_2.csv'
+filename3 = '/Users/sanskruti/Downloads/nexus!/20210930-0001-cr3/20210930-0001-cr3_3.csv'
 df = pd.read_csv(filename , skiprows=3, names=['Hz', 'dBv'])
-df2 = pd.read_csv(filename2, skiprows=3, names=['Hz', 'dBv'])
+df2 = pd.read_csv(filename1, skiprows=3, names=['Hz', 'dBv'])
 df3 = pd.read_csv(filename3, skiprows=3, names=['Hz', 'dBv'])
 
 #convert dBv to V_m
@@ -67,6 +67,8 @@ plt.ylim([10**(-4), 10])
 plt.xlim([0, 400])
 plt.grid(linestyle='-')
 plt.legend(loc = 'best')
-plt.title('Vibration Spectrum- Center Tuesday')
+plt.title('Vibration Spectrum- Cylinder Room 3)')
 # plt.savefig(r'filepath' + filename + '.png', dpi=200)
 plt.show()
+
+#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 (personal access token)
